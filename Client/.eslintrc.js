@@ -44,5 +44,8 @@ module.exports = {
 	'import/extensions': 'off',
 	'import/no-named-as-default': 'off',
 	'import/no-named-as-default-member': 'off'
+  },
+  globals: {
+	  IGDBA: true
   }
 }

@@ -1,25 +1,9 @@
 import angular from 'angular';
+import mainCtrl from './mainCtrl';
+import mainComp from './components/main/component';
 
-import './style/main.css';
+const MODULE_NAME = 'IGDBA';
+window.IGDBA = angular.module(MODULE_NAME, [])
+	.controller('mainCtrl', mainCtrl);
 
-let app = () => {
-	return {
-		template: require('./main.html'),
-		controller: 'AppCtrl',
-		controllerAs: 'app'
-	};
-};
-
-class AppCtrl {
-	constructor () {
-		this.url = 'https://github.com/HuMMeRSI/IGDBA';
-	}
-}
-
-const MODULE_NAME = 'app';
-
-angular.module(MODULE_NAME, [])
-	.directive('app', app)
-	.controller('AppCtrl', AppCtrl);
-
-export default MODULE_NAME;
+mainComp();

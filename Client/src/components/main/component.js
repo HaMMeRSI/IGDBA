@@ -1,7 +1,12 @@
 export default function () {
-	return {
-		template: require('./main.html'),
-		controller: 'AppCtrl',
-		controllerAs: 'app'
-	};
-};
+	require('./controller');
+	require('./component.css');
+
+	IGDBA.directive('app', () => {
+		return {
+			template: require('./view.html'),
+			controller: 'appCtrl',
+			controllerAs: 'appa'
+		};
+	});
+}
