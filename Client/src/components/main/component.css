@@ -6,7 +6,6 @@
 }
 #siteNav {
     display: flex;
-    direction: rtl;
     background: #0354c3;
     height: 30px;
     align-items: center;
@@ -20,7 +19,7 @@
 }
 
 .navItem {
-	border-right: 1px solid black;
+	border-left: 1px solid black;
 	height: 100%;
 	display: flex;
 	align-items:center;
