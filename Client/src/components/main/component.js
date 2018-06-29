@@ -6,7 +6,8 @@ export default function () {
 		return {
 			template: require('./view.html'),
 			controller: 'appCtrl',
-			controllerAs: 'appa'
+			controllerAs: 'appa',
+			replace: true
 		};
 	});
 }

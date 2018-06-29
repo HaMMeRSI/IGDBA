@@ -1,4 +1,6 @@
 import angular from 'angular';
+import 'reset-css';
+import './style/main.css';
 import mainCtrl from './mainCtrl';
 import mainComp from './components/main/component';
 
