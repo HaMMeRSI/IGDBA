@@ -1,0 +1,39 @@
+.popularGamesContainer {
+	width: 100%;
+	display:block;
+
+	&>h3 {
+		padding: 5px 5px 5px 0;
+		&::after {
+			display: block;
+			width: 80px;
+			margin: 10px;
+			background-color: white;
+			height: 2px;
+			content: "";
+		}
+	}
+	
+	.popGamesComp {
+		display: block;
+		height: 250px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		align-items: center;
+		white-space: nowrap;
+		width: 100%;
+
+		&::-webkit-scrollbar {
+			width: 12px;
+		}
+		
+		&::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+		}
+	}
+
+	.GameView {
+		display: inline-block;
+	}
+}

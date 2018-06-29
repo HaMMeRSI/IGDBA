@@ -1,4 +1,4 @@
-export default class mainCtrl {
+export default class appCtrl {
 	constructor () {
 		this.temp = 'aaa';
 	}
