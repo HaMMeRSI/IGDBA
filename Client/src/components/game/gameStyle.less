@@ -1,5 +1,47 @@
-.GameView {
+.gameView {
 	background-color: blue;
 	width: 200px;
 	height: 230px;
+	display:inline-block;
+	position: relative;
+	overflow: hidden;
+
+	.gameView_gameImage {
+		width: 100%;
+		height: 100%;
+	}
+	
+	&:hover {
+		.gameView_gameDetails {
+			height: 60%;
+		}
+	}
+
+	.gameView_gameDetails {
+		position: absolute;
+		width: 100%;
+		height: 0%;
+		bottom: 0;
+		background-color: rgba(0,0,0,.5);
+		padding: 0 5px 5px 5px;
+		-webkit-transition: height .3s;
+		display: flex;
+		flex-direction: column;
+		cursor: pointer;
+
+		.gameView_gameTitle {
+			font-size: 18pt;
+			text-decoration: underline;
+			margin: 10px 0;
+			width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.gameView_readMore {
+			font-size: 14pt;
+			margin-top: auto;
+		}
+	}
 }

@@ -5,7 +5,7 @@ IGDBA.directive('game', () => {
 	return {
 		template: require('./gameView.html'),
 		controller: 'gameCtrl',
-		controllerAs: 'game',
+		controllerAs: 'g',
 		replace: true
 	};
 });
