@@ -7,8 +7,23 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/getAllGames', async (req, res, next) => {
-	const gameList = await gamesRepository.getAllGames();
-	res.send(gameList);
+	try {
+		const gameList = await gamesRepository.getAllGames();
+		res.send(gameList);
+	} catch(err) {
+		res.status(500).send(`There was a problem getting games list.\n Error: ${err.message}`)
+	};
 });
+
+router.post('/addGame', async (req, res, next) => {
+	const game = req.body.game;
+
+	try {
+		await gamesRepository.addGame(game);
+		res.send('Game was added successfully')
+	} catch(err) {
+		res.status(500).send(`There was a problem adding the game.\n Error: ${err.message}`)
+	}
+})
 
 module.exports = router;
