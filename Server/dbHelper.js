@@ -46,6 +46,17 @@ const dbHelper = {
 			});
 		});
 	},
+	deleteFromCollection(client, dbName, collectionName, query) {
+		return new Promise((resolve, reject) => {
+			client.db(dbName).collection(collectionName).deleteOne(query, (err, result) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(result);
+				}
+			});
+		});
+	},
 	closeClient(client) {
 		client.close();
 	}

@@ -37,4 +37,15 @@ router.post('/updateGame', async (req, res, next) => {
 	}
 })
 
+router.delete('/deleteGame', async (req, res, next) => {
+	const gameId = req.body.gameId;
+
+	try {
+		await gamesRepository.deleteGame(gameId);
+		res.send('Game was deleted successfully')
+	} catch(err) {
+		res.status(500).send(`There was a problem deleting the game.\n Error: ${err.message}`)
+	}
+})
+
 module.exports = router;

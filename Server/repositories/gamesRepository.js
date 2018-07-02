@@ -37,6 +37,18 @@ const gamesRepository = {
 			console.log(err);
 			throw err;
 		}
+	},
+	deleteGame: async (gameId) => {
+		try {
+			const client = await dbHelper.getDbClient();
+			result = await dbHelper.deleteFromCollection(client, 'IGDB', 'GameCollection', { _id: gameId })
+			dbHelper.closeClient(client);
+
+			return result;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
 	}
 }
 
