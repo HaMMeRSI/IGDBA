@@ -35,6 +35,17 @@ const dbHelper = {
 			});
 		});
 	},
+	updateInCollection(client, dbName, collectionName, query, newvalues) {
+		return new Promise((resolve, reject) => {
+			client.db(dbName).collection(collectionName).updateOne(query, newvalues, (err, result) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(result);
+				}
+			});
+		});
+	},
 	closeClient(client) {
 		client.close();
 	}

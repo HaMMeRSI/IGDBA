@@ -16,8 +16,23 @@ const gamesRepository = {
 	addGame: async (newgame) => {
 		try {
 			const client = await dbHelper.getDbClient();
-			await dbHelper.insertToCollection(client, 'IGDB', 'GameCollection', newgame);
+			result = await dbHelper.insertToCollection(client, 'IGDB', 'GameCollection', newgame);
 			dbHelper.closeClient(client);
+
+			return result;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
+	},
+	updateGame: async (game) => {
+		try {
+			const client = await dbHelper.getDbClient();
+			const { _id, ...fields } = game;
+			result = await dbHelper.updateInCollection(client, 'IGDB', 'GameCollection', { _id }, { $set: fields })
+			dbHelper.closeClient(client);
+
+			return result;
 		} catch (err) {
 			console.log(err);
 			throw err;

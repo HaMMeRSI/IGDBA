@@ -26,4 +26,15 @@ router.post('/addGame', async (req, res, next) => {
 	}
 })
 
+router.post('/updateGame', async (req, res, next) => {
+	const game = req.body.game;
+
+	try {
+		await gamesRepository.updateGame(game);
+		res.send('Game was updated successfully')
+	} catch(err) {
+		res.status(500).send(`There was a problem updating the game.\n Error: ${err.message}`)
+	}
+})
+
 module.exports = router;
