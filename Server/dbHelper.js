@@ -24,6 +24,18 @@ const dbHelper = {
 			});
 		});
 	},
+	groupBy(client, dbName, collectionName, groupParams, match) {
+		return new Promise((resolve, reject) => {
+			client.db(dbName).collection(collectionName).aggregate([ { $match: match }, { $group: groupParams } ]).
+				toArray((err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(result);
+					}
+				});
+		});
+	},
 	insertToCollection(client, dbName, collectionName, newObject) {
 		return new Promise((resolve, reject) => {
 			client.db(dbName).collection(collectionName).insertOne(newObject, (err, result) => {

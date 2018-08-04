@@ -15,6 +15,17 @@ router.get('/getAllGames', async (req, res, next) => {
 	};
 });
 
+router.get('/getFilteredGames', async (req, res, next) => {
+	const filter = req.body.filter;
+
+	try {
+		const gameList = await gamesRepository.getFilteredGames(filter);
+		res.send(gameList);
+	} catch(err) {
+		res.status(500).send(`There was a problem getting games list.\n Error: ${err.message}`)
+	};
+});
+
 router.post('/addGame', async (req, res, next) => {
 	const game = req.body.game;
 
