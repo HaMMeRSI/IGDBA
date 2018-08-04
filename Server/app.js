@@ -7,6 +7,9 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const gamesRouter = require('./routes/games')
 
+// WebSocket
+const ws = require('./wsClient')
+
 const app = express();
 
 app.use(logger('dev'));
