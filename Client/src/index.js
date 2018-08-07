@@ -10,8 +10,8 @@ window.IGDBA = angular.module(MODULE_NAME, [require('angular-route')])
 	.config(($routeProvider) => {
 		$routeProvider.when('/', {
 			template: require('./views/mainView/mainView.html')
-		}, {
-			templateUrl: ''
+		}).when('/games', {
+			template: require('./views/gamesList/gamesListView.html')
 		});
 	});
 
