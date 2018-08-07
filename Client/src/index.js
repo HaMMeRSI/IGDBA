@@ -5,11 +5,12 @@ import appCtrl from './appCtrl';
 import mainComp from './components/main/mainComp';
 
 const MODULE_NAME = 'IGDBA';
-window.IGDBA = angular.module(MODULE_NAME, [require('angular-route'), require('angular-smart-table')]).controller('appCtrl', appCtrl);
+window.IGDBA = angular.module(MODULE_NAME, [require('angular-route'), require('angular-material')]).controller('appCtrl', appCtrl);
 mainComp();
 
 require('./views/gameView/gameViewCtrl.js');
 require('./views/gamesList/gamesListCtrl.js');
+require('angular-ui-grid/ui-grid.min.css');
 
 IGDBA.config(($routeProvider) => {
 	$routeProvider.when('/', {

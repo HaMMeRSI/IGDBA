@@ -1,8 +1,10 @@
+import './gamesListStyle.less';
+
 export default class GamesListCtrl {
 	constructor ($scope, $route, $routeParams, $location) {
 		this.url = 'https://images.igdb.com/igdb/image/upload/t_cover_big/faqrpb5usp5leipmwgtq.jpg';
 
-		$scope.games = [
+		const games = [
 			{
 				'_id': '5b362c84ed445d0d00f03262',
 				'name': 'test',
@@ -34,6 +36,11 @@ export default class GamesListCtrl {
 				'score': 95
 			}
 		];
+
+		$scope.options = {
+			rowTemplate: '<a>wefwef</a>',
+			data: games
+		};
 	}
 }
 IGDBA.controller('gamesListCtrl', GamesListCtrl);
