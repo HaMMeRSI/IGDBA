@@ -5,10 +5,13 @@ import appCtrl from './appCtrl';
 import mainComp from './components/main/mainComp';
 
 const MODULE_NAME = 'IGDBA';
-window.IGDBA = angular.module(MODULE_NAME, [require('angular-route')]).controller('appCtrl', appCtrl);
+var x = require('angular-smart-table');
+window.IGDBA = angular.module(MODULE_NAME, [require('angular-route'), x]).controller('appCtrl', appCtrl);
 mainComp();
 
 require('./views/gameView/gameViewCtrl.js');
+require('./views/gamesList/gamesListCtrl.js');
+
 IGDBA.config(($routeProvider) => {
 	$routeProvider.when('/', {
 		template: require('./views/mainView/mainView.html')
@@ -17,6 +20,6 @@ IGDBA.config(($routeProvider) => {
 		controller: 'gameViewCtrl'
 	}).when('/games', {
 		template: require('./views/gamesList/gamesListView.html'),
-		controller: 'gameListCtrl'
+		controller: 'gamesListCtrl'
 	});
 });
