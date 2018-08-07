@@ -1,3 +1,11 @@
 <div id="gamesListView">
-	<div ui-grid="{ data: games }" class="myGrid"></div>
+	<md-list>
+		<md-list-item class="md-2-line" ng-repeat="item in games" ng-click="openGameView(item._id)">
+			<img ng-src="{{item.image}}" class="md-avatar" alt="{{item.name}}" />
+			<div class="md-list-item-text">
+				<h3>{{item.name}}</h3>
+				<p>{{item.description}}</p>
+			</div>
+		</md-list-item>
+	</md-list>
 </div>

@@ -10,7 +10,7 @@ mainComp();
 
 require('./views/gameView/gameViewCtrl.js');
 require('./views/gamesList/gamesListCtrl.js');
-require('angular-ui-grid/ui-grid.min.css');
+require('angular-material/angular-material.min.css');
 
 IGDBA.config(($routeProvider) => {
 	$routeProvider.when('/', {
