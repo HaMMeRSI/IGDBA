@@ -3,4 +3,4 @@ export default class RecentViewed {
 		this.url = 'https://github.com/HuMMeRSI/IGDBA';
 	}
 }
-IGDBA.controller('recentViewed', RecentViewed);
+IGDBA.controller('recentViewedCtrl', RecentViewed);

@@ -1,10 +1,10 @@
 <div id="root">
 	<nav id="siteNav">
 		<div id="logo">IGDBA</div>
-		<div class="navItem">Item 1</div>
-		<div class="navItem">Item 2</div>
-		<div class="navItem">Item 3</div>
-		<div class="navItem">Item 4</div>
+		<div class="navItem"><a href="#">Main</a></div>
+		<div class="navItem"><a href="#!red">Item 2</a></div>
+		<div class="navItem"><a href="#!wef">Item 2</a></div>
+		<div class="navItem"><a href="#!ewf">Item 2</a></div>
 		<div id="searchNavItem">
 			<input type="text"/>
 			<div>S</div>
@@ -19,23 +19,7 @@
 		</aside>
 		<section id="siteBody">
 			<section id="content">
-				<popular-games id="popularGamesContainer"></popular-games>
-			</section>
-			<section id="content">
-				<h1 class="title">Hello from Angular !</h1>
-				<img src="/logo.png">
-			</section><section id="content">
-				<h1 class="title">Hello from Angular !</h1>
-				<img src="/logo.png">
-			</section><section id="content">
-				<h1 class="title">Hello from Angular !</h1>
-				<img src="/logo.png">
-			</section><section id="content">
-				<h1 class="title">Hello from Angular !</h1>
-				<img src="/logo.png">
-			</section><section id="content">
-				<h1 class="title">Hello from Angular !</h1>
-				<img src="/logo.png">
+				<div ng-view></div>
 			</section>
 			<footer>
 				<a ng-href="{{appa.url}}">Webpack Angular Starter</a>
