@@ -1,5 +1,5 @@
 export default class AppCtrl {
-	constructor () {
+	constructor ($scope) {
 		this.url = 'https://github.com/HuMMeRSI/IGDBA';
 	}
 }
