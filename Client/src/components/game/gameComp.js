@@ -3,7 +3,7 @@ require('./gameStyle');
 
 IGDBA.directive('game', () => {
 	return {
-		template: require('./gameView.html'),
+		template: require('./gameComponent.html'),
 		controller: 'gameCtrl',
 		controllerAs: 'g',
 		restrict: 'E',
