@@ -9,10 +9,7 @@ window.IGDBA = angular.module(MODULE_NAME, [require('angular-route')])
 	.controller('appCtrl', appCtrl)
 	.config(($routeProvider) => {
 		$routeProvider.when('/', {
-			template: `
-<popular-games id="popularGamesContainer"></popular-games>
-<recent-viewed id="recentViewedContainer"></recent-viewed>
-`
+			template: require('./views/mainView/mainView.html')
 		}, {
 			templateUrl: ''
 		});
