@@ -13,6 +13,8 @@ window.IGDBA = angular.module(MODULE_NAME, [require('angular-route')])
 <popular-games id="popularGamesContainer"></popular-games>
 <recent-viewed id="recentViewedContainer"></recent-viewed>
 `
+		}, {
+			templateUrl: ''
 		});
 	});
 
