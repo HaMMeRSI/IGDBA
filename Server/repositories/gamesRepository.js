@@ -65,7 +65,7 @@ const gamesRepository = {
 	deleteGame: async (gameId) => {
 		try {
 			const client = await dbHelper.getDbClient();
-			result = await dbHelper.deleteFromCollection(client, 'IGDB', 'GameCollection', { _id: gameId })
+			result = await dbHelper.deleteFromCollection(client, 'IGDB', 'GameCollection', gameId)
 			dbHelper.closeClient(client);
 
 			return result;

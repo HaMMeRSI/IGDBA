@@ -26,7 +26,7 @@ const dbHelper = {
 	},
 	findById(client, dbName, collectionName, id) {
 		return new Promise((resolve, reject) => {
-			client.db(dbName).collection(collectionName).findOne({ "_id": ObjectId(id)}, (err, result) => {
+			client.db(dbName).collection(collectionName).findOne({ _id: ObjectId(id)}, (err, result) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -69,9 +69,9 @@ const dbHelper = {
 			});
 		});
 	},
-	deleteFromCollection(client, dbName, collectionName, query) {
+	deleteFromCollection(client, dbName, collectionName, id) {
 		return new Promise((resolve, reject) => {
-			client.db(dbName).collection(collectionName).deleteOne(query, (err, result) => {
+			client.db(dbName).collection(collectionName).deleteOne({ _id: ObjectId(id) }, (err, result) => {
 				if (err) {
 					reject(err);
 				} else {

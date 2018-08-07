@@ -59,7 +59,7 @@ router.post('/updateGame', async (req, res, next) => {
 	}
 })
 
-router.delete('/deleteGame', async (req, res, next) => {
+router.post('/deleteGame', async (req, res, next) => {
 	const gameId = req.body.gameId;
 
 	try {
