@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient, ObjectId } = require('mongodb');
 const { connectionUrl } = require('./appConfig');
 
 const dbHelper = {
@@ -16,6 +16,17 @@ const dbHelper = {
 	findInCollection(client, dbName, collectionName, query) {
 		return new Promise((resolve, reject) => {
 			client.db(dbName).collection(collectionName).find(query).toArray((err, result) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(result);
+				}
+			});
+		});
+	},
+	findById(client, dbName, collectionName, id) {
+		return new Promise((resolve, reject) => {
+			client.db(dbName).collection(collectionName).findOne({ "_id": ObjectId(id)}, (err, result) => {
 				if (err) {
 					reject(err);
 				} else {

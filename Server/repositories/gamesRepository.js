@@ -25,6 +25,18 @@ const gamesRepository = {
 			throw err;
 		}
 	},
+	getGameById: async (gameId) => {
+		try {
+			const client = await dbHelper.getDbClient();
+			const game = await dbHelper.findById(client, 'IGDB', 'GameCollection', gameId);
+			dbHelper.closeClient(client);
+
+			return game;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
+	},
 	addGame: async (newgame) => {
 		try {
 			const client = await dbHelper.getDbClient();
