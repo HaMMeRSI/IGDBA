@@ -5,8 +5,7 @@ import appCtrl from './appCtrl';
 import mainComp from './components/main/mainComp';
 
 const MODULE_NAME = 'IGDBA';
-var x = require('angular-smart-table');
-window.IGDBA = angular.module(MODULE_NAME, [require('angular-route'), x]).controller('appCtrl', appCtrl);
+window.IGDBA = angular.module(MODULE_NAME, [require('angular-route'), require('angular-smart-table')]).controller('appCtrl', appCtrl);
 mainComp();
 
 require('./views/gameView/gameViewCtrl.js');
