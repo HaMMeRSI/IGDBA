@@ -3,7 +3,7 @@ require('./popularGamesStyle');
 
 IGDBA.directive('popularGames', () => {
 	return {
-		template: require('./popularGamesView.html'),
+		template: require('./popularGamesComponent.html'),
 		controller: 'popularGamesCtrl',
 		controllerAs: 'pg',
 	};

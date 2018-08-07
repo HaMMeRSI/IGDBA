@@ -7,7 +7,7 @@ export default function () {
 
 	IGDBA.directive('app', () => {
 		return {
-			template: require('./mainView.html'),
+			template: require('./mainComponent.html'),
 			controller: 'appCtrl',
 			controllerAs: 'appa',
 			replace: true

@@ -3,7 +3,7 @@ require('./recentViewedStyle');
 
 IGDBA.directive('recentViewed', () => {
 	return {
-		template: require('./recentViewedView.html'),
+		template: require('./recentViewedComponent.html'),
 		controller: 'recentViewedCtrl',
 		controllerAs: 'rv',
 	};
