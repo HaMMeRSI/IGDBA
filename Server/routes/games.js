@@ -16,11 +16,22 @@ router.get('/getAllGames', async (req, res, next) => {
 });
 
 router.get('/getFilteredGames', async (req, res, next) => {
-	const filter = req.body.filter;
+	const filter = JSON.parse(req.query.filter);
 
 	try {
 		const gameList = await gamesRepository.getFilteredGames(filter);
 		res.send(gameList);
+	} catch(err) {
+		res.status(500).send(`There was a problem getting games list.\n Error: ${err.message}`)
+	};
+});
+
+router.get('/getGameById', async (req, res, next) => {
+	const gameId = req.query.gameId;
+
+	try {
+		const game = await gamesRepository.getGameById(gameId);
+		res.send(game);
 	} catch(err) {
 		res.status(500).send(`There was a problem getting games list.\n Error: ${err.message}`)
 	};
