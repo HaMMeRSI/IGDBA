@@ -44,8 +44,8 @@ const gamesRepository = {
 	addGame: async (newgame) => {
 		try {
 			const client = await dbHelper.getDbClient();
-			newGame.lastViewed = Date.now();
-			newGame.views = 0;
+			newgame.lastViewed = Date.now();
+			newgame.views = 0;
 			result = await dbHelper.insertToCollection(client, 'IGDB', 'GameCollection', newgame);
 			dbHelper.closeClient(client);
 
