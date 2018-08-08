@@ -9,6 +9,20 @@ export default class GamesListCtrl {
 			$scope.games = res.data;
 		});
 
+		$scope.ws = new WebSocket('ws://localhost:3001/');
+
+		$scope.ws.onopen = () => {
+			console.log('ws connected');
+		};
+
+		$scope.ws.onmessage = (msg) => {
+			console.log(msg);
+		};
+
+		$scope.ws.onclose = () => {
+			console.log('ws closed');
+		};
+
 		$scope.showConfirm = (ev, id) => {
 			// Appending dialog to document.body to cover sidenav in docs app
 			var confirm = $mdDialog.confirm()

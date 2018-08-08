@@ -1,8 +1,9 @@
 const WebSocket = require('ws');
+const gamesRepository = require('./repositories/gamesRepository');
 
 const wss = new WebSocket.Server({ port: 3001 });
 
-wss.on('connection', (ws, req) => {
+wss.on('connection', async (ws, req) => {
 	const ip = req.connection.remoteAddress;
 	console.log(`Client connected: ${ip}`)
 
@@ -12,7 +13,8 @@ wss.on('connection', (ws, req) => {
 		for (client of wss.clients) {
 			wss.clients.forEach((client) => {
 				if (client !== ws && client.readyState === WebSocket.OPEN) {
-					client.send(message);
+					const gamesList = await gamesRepository.getAllGames();
+					client.send(gamesList);
 				}
 			});
 		}

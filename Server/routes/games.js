@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const gamesRepository = require('../repositories/gamesRepository')
+const gamesRepository = require('../repositories/gamesRepository');
 
 router.get('/', (req, res, next) => {
 	res.send('nothing to see')

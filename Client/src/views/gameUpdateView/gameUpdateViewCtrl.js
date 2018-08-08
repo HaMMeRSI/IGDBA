@@ -8,6 +8,11 @@ export default class gameUpdateViewCtrl {
 
 		$scope.updateGame = () => {
 			$http.post('http://localhost:3000/games/updateGame', { game: $scope.data }).then(() => {
+				const ws = new WebSocket('ws://localhost:3001/');
+				ws.onopen((ev) => {
+					ws.send('game updated');
+					ws.close();
+				});
 				window.location.href = `#!games`;
 			});
 		};
