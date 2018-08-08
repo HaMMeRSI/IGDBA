@@ -5,9 +5,15 @@ export default class GamesListCtrl {
 		this.url = 'https://images.igdb.com/igdb/image/upload/t_cover_big/faqrpb5usp5leipmwgtq.jpg';
 		$scope.openGameView = this.openGameView;
 
-		$http.get(`http://localhost:3000/games/getAllGames`).then((res) => {
-			$scope.games = res.data;
-		});
+		if ($routeParams.filter) {
+			$http.get(`http://localhost:3000/games/getFilteredGames?filter=${$routeParams.filter}`).then((res) => {
+				$scope.games = res.data;
+			});
+		} else {
+			$http.get(`http://localhost:3000/games/getAllGames`).then((res) => {
+				$scope.games = res.data;
+			});
+		}
 
 		$scope.ws = new WebSocket('ws://localhost:3001/');
 
