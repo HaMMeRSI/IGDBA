@@ -2,20 +2,16 @@
 	<img src="{{url}}" class="gameView_gameImage">
 	<div class="gameView_gameDetails">
 		<h2 class="gameView_gameTitle">
-			Spyro Reignited Trilogy
+			{{data.name}}
 		</h2>
 		<h4 class="gameView_gameGenre">
-			adventure
+			{{data.genre}}
 		</h4>
 		<h4 class="gameView_gameRank">
-			<span>*</span>
-			<span>*</span>
-			<span>*</span>
-			<span>*</span>
-			<span>*</span>
+			<span>Score: {{data.score}}</span>
 		</h4>
 		<h4 class="gameView_readMore">
-			<a href="#!gameView?id=5b362c84ed445d0d00f03262">Read more...</a>
+			<a href="#!gameView?id={{data._id}}">Read more...</a>
 		</h4>
 	</div>
 </div>

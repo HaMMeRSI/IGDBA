@@ -8,7 +8,9 @@ IGDBA.directive('game', () => {
 		controllerAs: 'g',
 		restrict: 'E',
 		replace: true,
-		scope: {},
+		scope: {
+			data: '='
+		},
 		link (scope, element, attrs, tabsCtrl) {
 			const images = [
 				'jssqwk2ng823u1ypb8l6.jpg',

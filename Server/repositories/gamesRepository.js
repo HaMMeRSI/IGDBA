@@ -4,7 +4,7 @@ const gamesRepository = {
 	getAllGames: async () => {
 		try {
 			const client = await dbHelper.getDbClient();
-			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {});
+			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {}, {});
 			dbHelper.closeClient(client);
 
 			return gamesList;
@@ -16,7 +16,7 @@ const gamesRepository = {
 	getFilteredGames: async (filter) => {
 		try {
 			const client = await dbHelper.getDbClient();
-			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', filter);
+			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', filter, {});
 			dbHelper.closeClient(client);
 
 			return gamesList;
@@ -76,6 +76,19 @@ const gamesRepository = {
 			console.log(err);
 			throw err;
 		}
+	},
+	getPopularGames: async () => {
+		try {
+			const client = await dbHelper.getDbClient();
+			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {}, {views: -1});
+			dbHelper.closeClient(client);
+
+			return gamesList;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
+
 	}
 }
 

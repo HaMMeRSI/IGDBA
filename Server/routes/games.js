@@ -26,6 +26,15 @@ router.get('/getFilteredGames', async (req, res, next) => {
 	};
 });
 
+router.get('/GetPopularGames', async (req, res, next) => {
+	try {
+		const gameList = await gamesRepository.getPopularGames();
+		res.send(gameList);
+	} catch(err) {
+		res.status(500).send(`There was a problem getting games list.\n Error: ${err.message}`)
+	};
+});
+
 router.get('/getGameById', async (req, res, next) => {
 	const gameId = req.query.gameId;
 
