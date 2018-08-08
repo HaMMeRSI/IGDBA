@@ -15,6 +15,10 @@ export default class mapViewCtrl {
 			},
 			map
 		});
+		marker = new window.google.maps.Marker({
+			position: { lat: 31.483424399819263, lng: 35.122759765625005 },
+			map
+		});
 
 		console.log(marker);
 	}
