@@ -17,7 +17,7 @@ const dbHelper = {
 		return new Promise((resolve, reject) => {
 			const filter = {};
 			Object.keys(query).forEach(key => {
-				filter[key] = RegExp(`/.*${query[key]}.*/`);
+				filter[key] = { $regex: `.*${query[key]}.*`, $options:'i' };
 			});
 
 			client.db(dbName).collection(collectionName).find(filter).sort(sort).toArray((err, result) => {
