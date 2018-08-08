@@ -16,7 +16,9 @@ export default class GamesListCtrl {
 		};
 
 		$scope.ws.onmessage = (msg) => {
-			console.log(msg);
+			$http.get(`http://localhost:3000/games/getAllGames`).then((res) => {
+				$scope.games = res.data;
+			});
 		};
 
 		$scope.ws.onclose = () => {
@@ -41,6 +43,7 @@ export default class GamesListCtrl {
 
 		$scope.updateGame = (id) => {
 			window.location.href = `#!gameUpdate?id=${id}`;
+			$scope.ws.close();
 		};
 	}
 
