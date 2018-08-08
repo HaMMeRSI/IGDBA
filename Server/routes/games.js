@@ -73,7 +73,7 @@ router.post('/deleteGame', async (req, res, next) => {
 router.get('/getGamesByGenre', async (req, res, next) => {
 	try {
 		const gamesByGenre = await gamesRepository.gamesByGenre();
-		res.send(gameList);
+		res.send(gamesByGenre);
 	} catch(err) {
 		res.status(500).send(`There was a problem getting games by genre.\n Error: ${err.message}`)
 	};
