@@ -9,7 +9,7 @@ export default class GamesListCtrl {
 			$scope.games = res.data;
 		});
 
-		$scope.showConfirm = (ev) => {
+		$scope.showConfirm = (ev, id) => {
 			// Appending dialog to document.body to cover sidenav in docs app
 			var confirm = $mdDialog.confirm()
 				.title('Delete game')
@@ -20,9 +20,13 @@ export default class GamesListCtrl {
 				.cancel('Cancel');
 
 			$mdDialog.show(confirm).then(() => {
-				$http.post('http://localhost:3000/games/deleteGame', { gameId: '5b69901af085192d6c6008d7' });
+				$http.post('http://localhost:3000/games/deleteGame', { gameId: id });
 			}, () => {
 			});
+		};
+
+		$scope.updateGame = (id) => {
+			window.location.href = `#!gameUpdate?id=${id}`;
 		};
 	}
 

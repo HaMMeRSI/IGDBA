@@ -1,0 +1,46 @@
+<div id="gameUpdateView">
+	<md-content id="gameUpdateForm" layout-padding ng-if="data !== undefined">
+		<md-card>
+			<form name="GameUpdate">
+				<md-input-container class="md-block">
+					<label>Name</label>
+					<input name="Name" ng-model="data.name" />
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Genre</label>
+					<input name="Genre" ng-model="data.genre" />
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Company</label>
+					<input name="Company" ng-model="data.company" />
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Description</label>
+					<input name="Description" ng-model="data.description" />
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Image</label>
+					<input name="Image" ng-model="data.image" />
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Release Date</label>
+					<md-datepicker ng-model="data.releaseDate"></md-datepicker>
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Score</label>
+					<input name="score" type="number" ng-model="data.score" />
+				</md-input-container>
+
+				<div>
+					<md-button ng-click="updateGame()">Update</md-button>
+				</div>
+			</form>
+		</md-card>
+	</md-content>
+</div>

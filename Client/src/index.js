@@ -11,6 +11,7 @@ mainComp();
 require('./views/gameView/gameViewCtrl.js');
 require('./views/gamesList/gamesListCtrl.js');
 require('./views/mapView/mapViewCtrl.js');
+require('./views/gameUpdateView/gameUpdateViewCtrl.js');
 require('angular-material/angular-material.min.css');
 
 IGDBA.config(($routeProvider) => {
@@ -25,5 +26,8 @@ IGDBA.config(($routeProvider) => {
 	}).when('/tour', {
 		template: require('./views/mapView/mapView.html'),
 		controller: 'mapViewCtrl'
+	}).when('/gameUpdate', {
+		template: require('./views/gameUpdateView/gameUpdateView.html'),
+		controller: 'gameUpdateViewCtrl'
 	});
 });
