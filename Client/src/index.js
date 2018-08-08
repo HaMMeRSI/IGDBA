@@ -17,6 +17,7 @@ require('./views/mapView/mapViewCtrl.js');
 require('./views/facebook/facebookViewCtrl.js');
 require('./views/gameUpdateView/gameUpdateViewCtrl.js');
 require('./views/gameAddView/gameAddViewCtrl.js');
+require('./views/statisticsView/statisticsViewCtrl.js');
 require('angular-material/angular-material.min.css');
 require('@/assets/fonts/stylesheet.css');
 
@@ -40,6 +41,9 @@ IGDBA.config(($routeProvider) => {
 		template: require('./views/gameUpdateView/gameUpdateView.html'),
 		controller: 'gameUpdateViewCtrl'
 	}).when('/gameAdd', {
+		template: require('./views/gameAddView/gameAddView.html'),
+		controller: 'gameAddViewCtrl'
+	}).when('/statistics', {
 		template: require('./views/gameAddView/gameAddView.html'),
 		controller: 'gameAddViewCtrl'
 	});

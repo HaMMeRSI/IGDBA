@@ -73,6 +73,18 @@ const gamesRepository = {
 			console.log(err);
 			throw err;
 		}
+	},
+	gamesByGenre: async () => {
+		try {
+			const client = await dbHelper.getDbClient();
+			const gamesByGenre = dbHelper.groupBy(client, 'IGDB', 'GameCollection', { _id: '$genre', gameCount: { $sum: 1 } }, {})
+			dbHelper.closeClient(client);
+
+			return gamesByGenre;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
 	}
 }
 
