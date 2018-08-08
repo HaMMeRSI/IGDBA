@@ -1,32 +1,8 @@
 <div class="popGames_comp">
 	<h3>POPULAR GAMES RIGHT NOW</h3>
 	<div class="popGames_games">
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
-		</div>
-		<div class="popGames_gameContainer">
-			<game></game>
+		<div class="popGames_gameContainer" ng-repeat="game in games">
+			<game data="game"></game>
 		</div>
 	</div>
 </div>

@@ -13,9 +13,9 @@ const dbHelper = {
 			});
 		});
 	},
-	findInCollection(client, dbName, collectionName, query) {
+	findInCollection(client, dbName, collectionName, query, sort) {
 		return new Promise((resolve, reject) => {
-			client.db(dbName).collection(collectionName).find(query).toArray((err, result) => {
+			client.db(dbName).collection(collectionName).find(query).sort(sort).toArray((err, result) => {
 				if (err) {
 					reject(err);
 				} else {

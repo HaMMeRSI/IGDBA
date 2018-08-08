@@ -4,7 +4,7 @@ const gamesRepository = {
 	getAllGames: async () => {
 		try {
 			const client = await dbHelper.getDbClient();
-			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {});
+			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {}, {});
 			dbHelper.closeClient(client);
 
 			return gamesList;
@@ -16,7 +16,7 @@ const gamesRepository = {
 	getFilteredGames: async (filter) => {
 		try {
 			const client = await dbHelper.getDbClient();
-			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', filter);
+			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', filter, {});
 			dbHelper.closeClient(client);
 
 			return gamesList;
@@ -29,6 +29,9 @@ const gamesRepository = {
 		try {
 			const client = await dbHelper.getDbClient();
 			const game = await dbHelper.findById(client, 'IGDB', 'GameCollection', gameId);
+			const { _id, ...fields } = game;
+			fields.views++;
+			result = await dbHelper.updateInCollection(client, 'IGDB', 'GameCollection', _id, { $set: fields })
 			dbHelper.closeClient(client);
 
 			return game;
@@ -86,6 +89,18 @@ const gamesRepository = {
 					gameCount: game.count
 				}
 			});
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
+	},
+	getPopularGames: async () => {
+		try {
+			const client = await dbHelper.getDbClient();
+			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {}, {views: -1});
+			dbHelper.closeClient(client);
+
+			return gamesList;
 		} catch (err) {
 			console.log(err);
 			throw err;
