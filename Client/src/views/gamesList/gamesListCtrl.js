@@ -45,6 +45,11 @@ export default class GamesListCtrl {
 			window.location.href = `#!gameUpdate?id=${id}`;
 			$scope.ws.close();
 		};
+
+		$scope.addGame = () => {
+			window.location.href = `#!gameAdd`;
+			$scope.ws.close();
+		};
 	}
 
 	openGameView (id) {
