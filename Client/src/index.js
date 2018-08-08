@@ -10,16 +10,19 @@ window.IGDBA = angular
 	.controller('appCtrl', appCtrl);
 mainComp();
 
+require('./views/mainView/mainViewCtrl');
 require('./views/gameView/gameViewCtrl.js');
 require('./views/gamesList/gamesListCtrl.js');
 require('./views/mapView/mapViewCtrl.js');
 require('./views/facebook/facebookViewCtrl.js');
 require('./views/gameUpdateView/gameUpdateViewCtrl.js');
 require('angular-material/angular-material.min.css');
+require('@/assets/fonts/stylesheet.css');
 
 IGDBA.config(($routeProvider) => {
 	$routeProvider.when('/', {
-		template: require('./views/mainView/mainView.html')
+		template: require('./views/mainView/mainView.html'),
+		controller: 'mainViewCtrl'
 	}).when('/gameView', {
 		template: require('./views/gameView/gameView.html'),
 		controller: 'gameViewCtrl'
