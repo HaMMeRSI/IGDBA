@@ -26,7 +26,7 @@ IGDBA.config(($routeProvider) => {
 	}).when('/games', {
 		template: require('./views/gamesList/gamesListView.html'),
 		controller: 'gamesListCtrl'
-	}).when('/tour', {
+	}).when('/events', {
 		template: require('./views/mapView/mapView.html'),
 		controller: 'mapViewCtrl'
 	}).when('/facebook', {
