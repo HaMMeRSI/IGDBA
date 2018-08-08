@@ -1,0 +1,11 @@
+<div id="facebookViewContainer">
+	<h1>Our facebook page posts</h1>
+	<div ng-repeat="post in posts" class="facebookPost">
+		<div class="postMessage">{{post.message}}</div>
+		<div class="postComments">
+			<div ng-repeat="comment in post.comments" class="postComment">
+				{{comment.message}}
+			</div>
+		</div>
+	</div>
+</div>
