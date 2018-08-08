@@ -77,10 +77,15 @@ const gamesRepository = {
 	gamesByGenre: async () => {
 		try {
 			const client = await dbHelper.getDbClient();
-			const gamesByGenre = dbHelper.groupBy(client, 'IGDB', 'GameCollection', { _id: '$genre', gameCount: { $sum: 1 } }, {})
+			const gamesByGenre = await dbHelper.groupBy(client, 'IGDB', 'GameCollection', { _id: '$genre', count: { $sum: 1 } }, {})
 			dbHelper.closeClient(client);
 
-			return gamesByGenre;
+			return gamesByGenre.map((game) => {
+				return {
+					genre: game._id,
+					gameCount: game.count
+				}
+			});
 		} catch (err) {
 			console.log(err);
 			throw err;

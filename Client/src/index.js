@@ -44,7 +44,7 @@ IGDBA.config(($routeProvider) => {
 		template: require('./views/gameAddView/gameAddView.html'),
 		controller: 'gameAddViewCtrl'
 	}).when('/statistics', {
-		template: require('./views/gameAddView/gameAddView.html'),
-		controller: 'gameAddViewCtrl'
+		template: require('./views/statisticsView/statisticsView.html'),
+		controller: 'statisticsViewCtrl'
 	});
 });
