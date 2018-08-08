@@ -15,7 +15,12 @@ const dbHelper = {
 	},
 	findInCollection(client, dbName, collectionName, query, sort) {
 		return new Promise((resolve, reject) => {
-			client.db(dbName).collection(collectionName).find(query).sort(sort).toArray((err, result) => {
+			const filter = {};
+			Object.keys(query).forEach(key => {
+				filter[key] = RegExp(`/.*${query[key]}.*/`);
+			});
+
+			client.db(dbName).collection(collectionName).find(filter).sort(sort).toArray((err, result) => {
 				if (err) {
 					reject(err);
 				} else {
