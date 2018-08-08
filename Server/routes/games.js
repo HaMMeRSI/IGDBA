@@ -15,6 +15,20 @@ router.get('/getAllGames', async (req, res, next) => {
 	};
 });
 
+router.get('/getGamesPopularityCount', async (req, res, next) => {
+	try {
+		const gameList = await gamesRepository.getAllGames();
+		res.send(gameList.map((game) => {
+			return {
+				name: game.name,
+				views: game.views
+			}
+		}));
+	} catch(err) {
+		res.status(500).send(`There was a problem getting games list.\n Error: ${err.message}`)
+	};
+});
+
 router.get('/getFilteredGames', async (req, res, next) => {
 	const filter = JSON.parse(req.query.filter);
 
