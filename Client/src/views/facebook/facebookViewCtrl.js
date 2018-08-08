@@ -2,10 +2,10 @@ import './facebookView.less';
 
 export default class facebookViewCtrl {
 	constructor ($scope, $route, $routeParams, $location, $http, $rootScope) {
-		$rootScope.fbAsyncInit = this.fbAsyncInit.bind(this);
 		this.$scope = $scope;
 		this.url = 'https://images.igdb.com/igdb/image/upload/t_cover_big/faqrpb5usp5leipmwgtq.jpg';
 		this.at = 'EAANLf1Tlv5oBAPSUrt7eo1oOmXpDsNPjTNdnX6Dhfmjnq7a3vk8VRbu6usZATY1eqBKS3aC9vukTSv2bukHitzgV5IXZCbMdZAvJEtYEmqfJBy4qisezJ28ZCZAvwFmbedYArmLEnI0zlub7ZCUvvmqPnGiKDDwq3FhCtrbKz2kQXCj11b2eu4ZAeXx6vfJGb6Vt5Kt4VI2NGs96YUZAYjXs';
+
 		if (!$rootScope.fbInited) {
 			let js;
 			let fjs = document.getElementsByTagName('script')[0];
