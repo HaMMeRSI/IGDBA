@@ -31,6 +31,7 @@ const gamesRepository = {
 			const game = await dbHelper.findById(client, 'IGDB', 'GameCollection', gameId);
 			const { _id, ...fields } = game;
 			fields.views++;
+			fields.lastViewed = Date.now();
 			result = await dbHelper.updateInCollection(client, 'IGDB', 'GameCollection', _id, { $set: fields })
 			dbHelper.closeClient(client);
 
@@ -43,10 +44,25 @@ const gamesRepository = {
 	addGame: async (newgame) => {
 		try {
 			const client = await dbHelper.getDbClient();
+			newGame.lastViewed = Date.now();
+			newGame.views = 0;
 			result = await dbHelper.insertToCollection(client, 'IGDB', 'GameCollection', newgame);
 			dbHelper.closeClient(client);
 
 			return result;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
+	},
+	getLastViewedGames: async () => {
+		try {
+			const client = await dbHelper.getDbClient();
+			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {}, {lastViewed: -1});
+			gamesList.splice(7);
+			dbHelper.closeClient(client);
+
+			return gamesList;
 		} catch (err) {
 			console.log(err);
 			throw err;
@@ -98,6 +114,7 @@ const gamesRepository = {
 		try {
 			const client = await dbHelper.getDbClient();
 			const gamesList = await dbHelper.findInCollection(client, 'IGDB', 'GameCollection', {}, {views: -1});
+			gamesList.splice(20);
 			dbHelper.closeClient(client);
 
 			return gamesList;
