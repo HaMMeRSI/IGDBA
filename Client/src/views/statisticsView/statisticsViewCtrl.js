@@ -52,11 +52,11 @@ export default class statisticsViewCtrl {
 			let g = svg.append('g')
 				.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-			$http.get('http://localhost:3000/games/getGamesByGenre').then((result) => {
+			$http.get('http://localhost:3000/games/getGamesPopularityCount').then((result) => {
 				let data = result.data;
 
-				x.domain(data.map((d) => { return d.genre; }));
-				y.domain([0, window.d3.max(data, (d) => { return d.gameCount; })]);
+				x.domain(data.map((d) => { return d.name; }));
+				y.domain([0, window.d3.max(data, (d) => { return d.views; })]);
 
 				g.append('g')
 					.attr('class', 'axis axis--x')
@@ -71,16 +71,16 @@ export default class statisticsViewCtrl {
 					.attr('y', 6)
 					.attr('dy', '0.71em')
 					.attr('text-anchor', 'end')
-					.text('gameCount');
+					.text('views');
 
 				g.selectAll('.bar')
 					.data(data)
 					.enter().append('rect')
 					.attr('class', 'bar')
-					.attr('x', (d) => { return x(d.genre); })
-					.attr('y', (d) => { return y(d.gameCount); })
+					.attr('x', (d) => { return x(d.name); })
+					.attr('y', (d) => { return y(d.views); })
 					.attr('width', x.bandwidth())
-					.attr('height', (d) => { return height - y(d.gameCount); });
+					.attr('height', (d) => { return height - y(d.views); });
 			});
 		};
 
