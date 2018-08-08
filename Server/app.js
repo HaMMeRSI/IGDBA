@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const gamesRouter = require('./routes/games')
+const gamesRouter = require('./routes/games');
+const eventsRouter = require('./routes/events');
 
 // WebSocket
 const ws = require('./wsClient')
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/games', gamesRouter);
+app.use('/events', eventsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
