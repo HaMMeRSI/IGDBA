@@ -6,8 +6,40 @@
 		<div class="navItem"><a href="#!events">Events</a></div>
 		<div class="navItem"><a href="#!facebook">facebook</a></div>
 		<div id="searchNavItem">
-			<input type="text"/>
-			<div>S</div>
+			<!-- <input type="text" ng-model="searchQuery"/>
+			<div class="searchIcon" ng-click="onSearchClick($event)">S</div>
+			<div class="expandIcon" ng-click="onSearchClick($event)">V</div> -->
+			<md-menu>
+				<md-button aria-label="Open menu with custom trigger" class="md-icon-button" ng-click="$mdMenu.open()">
+					S
+				</md-button>
+				<md-menu-content width="5" ng-mouseleave="$mdMenu.close()" style="overflow: hidden;padding: 15px 5px;">
+					<md-menu-item>
+						<md-input-container>
+							<label>Name</label>
+							<input ng-model="filter.name">
+						</md-input-container>
+					</md-menu-item>
+					<md-menu-item>
+						<md-input-container>
+							<label>Genre</label>
+							<input ng-model="filter.genre">
+						</md-input-container>
+					</md-menu-item>
+					<md-menu-item>
+						<md-input-container>
+							<label>Description</label>
+							<input ng-model="filter.description">
+						</md-input-container>
+					</md-menu-item>
+					<md-menue-button>
+						<md-button aria-label="Open menu with custom trigger" ng-click="onSearchClick($event)">
+							Search
+						</md-button>
+					</md-menue-button>
+				</md-menu-content>
+			</md-menu>
+
 		</div>
 	</nav>
 
