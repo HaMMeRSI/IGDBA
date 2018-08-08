@@ -53,7 +53,7 @@ const gamesRepository = {
 		try {
 			const client = await dbHelper.getDbClient();
 			const { _id, ...fields } = game;
-			result = await dbHelper.updateInCollection(client, 'IGDB', 'GameCollection', { _id }, { $set: fields })
+			result = await dbHelper.updateInCollection(client, 'IGDB', 'GameCollection', _id, { $set: fields })
 			dbHelper.closeClient(client);
 
 			return result;

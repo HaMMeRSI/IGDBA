@@ -8,19 +8,29 @@ export default class mapViewCtrl {
 			center: { lat: 31.483424399819263, lng: 35.122759765625005 },
 			zoom: 8
 		});
-		var marker = new window.google.maps.Marker({
-			position: {
-				lat: 44,
-				lng: 44
-			},
-			map
-		});
-		marker = new window.google.maps.Marker({
-			position: { lat: 31.483424399819263, lng: 35.122759765625005 },
-			map
-		});
 
-		console.log(marker);
+		$http.get('http://localhost:3000/events/getAllEvents').then((res) => {
+			$scope.events = res.data.map((event) => {
+				return {
+					id: event._id,
+					lat: event.latitude,
+					lng: event.longitude
+				};
+			});
+
+			let marker;
+			for (let currEvent of $scope.events) {
+				marker = new window.google.maps.Marker({
+					position: {
+						lat: currEvent.lat,
+						lng: currEvent.lng
+					},
+					map
+				});
+
+				console.log(marker);
+			}
+		});
 	}
 }
 

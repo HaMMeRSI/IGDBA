@@ -58,9 +58,9 @@ const dbHelper = {
 			});
 		});
 	},
-	updateInCollection(client, dbName, collectionName, query, newvalues) {
+	updateInCollection(client, dbName, collectionName, id, newvalues) {
 		return new Promise((resolve, reject) => {
-			client.db(dbName).collection(collectionName).updateOne(query, newvalues, (err, result) => {
+			client.db(dbName).collection(collectionName).updateOne({ _id: ObjectId(id) }, newvalues, (err, result) => {
 				if (err) {
 					reject(err);
 				} else {

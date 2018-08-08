@@ -6,8 +6,8 @@
 				<h3>{{item.name}}</h3>
 				<p>{{item.description}}</p>
 			</div>
-			<md-button class="md-raised md-primary">Update</md-button>
-			<md-button class="md-raised md-warn" ng-click="showConfirm($event)">Delete</md-button>
+			<md-button class="md-raised md-primary" ng-click="updateGame(item._id)">Update</md-button>
+			<md-button class="md-raised md-warn" ng-click="showConfirm($event, item._id)">Delete</md-button>
 		</md-list-item>
 	</md-list>
 </div>

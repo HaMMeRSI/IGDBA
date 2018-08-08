@@ -33,7 +33,7 @@ router.get('/getGameById', async (req, res, next) => {
 		const game = await gamesRepository.getGameById(gameId);
 		res.send(game);
 	} catch(err) {
-		res.status(500).send(`There was a problem getting games list.\n Error: ${err.message}`)
+		res.status(500).send(`There was a problem getting the game.\n Error: ${err.message}`)
 	};
 });
 
